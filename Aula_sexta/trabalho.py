@@ -116,7 +116,11 @@ def consultar_aluno():
 
 
 def excluir_aluno():
+  exclusao-alunos
+    matricula = input("\nDigite a matrícula do aluno que deseja excluir: ").strip()
+
     matricula = input("Digite a matrícula do aluno: ").strip()
+      main
 
     for aluno in alunos:
         if aluno["matricula"] == matricula:
@@ -124,8 +128,7 @@ def excluir_aluno():
             print("\nAluno excluído com sucesso!")
             return
 
-    print("\nAluno não encontrado.")
-
+    print("\nAluno não encontrado.") 
 
 while True:
     print("\n===== SISTEMA DE NOTAS DA FACULDADE =====")
