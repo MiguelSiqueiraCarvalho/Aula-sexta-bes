@@ -46,6 +46,9 @@ python3 main.py
 
 Os dados dos alunos são armazenados temporariamente na memória durante a execução do programa. Ao encerrar o sistema, os registros são perdidos.
 
-## Autor
+## Autores
+Miguel Siqueira de Carvalho
+João Pedro do Rosario
+Pedro Henrique Maringonda
 
 Projeto acadêmico desenvolvido para praticar conceitos de programação utilizando Python.
