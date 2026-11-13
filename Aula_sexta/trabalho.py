@@ -1,5 +1,39 @@
+MEDIA_APROVACAO = 7
+QUANTIDADE_NOTAS = 3
 
 alunos = []
+
+
+def calcular_media(notas):
+    """Recebe uma lista de notas e retorna a média aritmética."""
+    if not notas:
+        return 0
+    return sum(notas) / len(notas)
+
+
+def verificar_situacao(media):
+    """Retorna 'Aprovado' ou 'Reprovado' conforme a média."""
+    if media >= MEDIA_APROVACAO:
+        return "Aprovado"
+    return "Reprovado"
+
+
+def ler_nota(numero):
+    """Pede uma nota ao usuário até que seja um valor válido entre 0 e 10."""
+    while True:
+        entrada = input(f"Digite a {numero}ª nota: ").strip().replace(",", ".")
+
+        try:
+            nota = float(entrada)
+        except ValueError:
+            print("Erro: digite apenas números (ex.: 7.5).")
+            continue
+
+        if nota < 0 or nota > 10:
+            print("Erro: a nota deve estar entre 0 e 10.")
+            continue
+
+        return nota
 
 
 def cadastrar_aluno():
@@ -23,26 +57,12 @@ def cadastrar_aluno():
             print("Erro: matrícula já cadastrada!")
             return
 
-    # Recebe e valida as três notas
-    notas = []
+    # Recebe e valida as notas
+    notas = [ler_nota(i + 1) for i in range(QUANTIDADE_NOTAS)]
 
-    for i in range(3):
-        nota = float(input(f"Digite a {i + 1}ª nota: "))
-
-        if nota < 0 or nota > 10:
-            print("Erro: a nota deve estar entre 0 e 10.")
-            return
-
-        notas.append(nota)
-
-    # Calcula a média
-    media = sum(notas) / len(notas)
-
-    # Verifica a situação acadêmica
-    if media >= 7:
-        situacao = "Aprovado"
-    else:
-        situacao = "Reprovado"
+    # Calcula a média e a situação acadêmica
+    media = calcular_media(notas)
+    situacao = verificar_situacao(media)
 
     # Organiza os dados do aluno
     aluno = {
@@ -75,9 +95,8 @@ def listar_alunos():
             print("Situação:", aluno["situacao"])
 
 
-
 def consultar_aluno():
-    matricula = input("Digite a matrícula do aluno: ")
+    matricula = input("Digite a matrícula do aluno: ").strip()
 
     for aluno in alunos:
         if aluno["matricula"] == matricula:
@@ -97,7 +116,11 @@ def consultar_aluno():
 
 
 def excluir_aluno():
+  exclusao-alunos
     matricula = input("\nDigite a matrícula do aluno que deseja excluir: ").strip()
+
+    matricula = input("Digite a matrícula do aluno: ").strip()
+      main
 
     for aluno in alunos:
         if aluno["matricula"] == matricula:
@@ -115,7 +138,7 @@ while True:
     print("4 - Excluir aluno")
     print("5 - Sair")
 
-    opcao = input("\nEscolha uma opção: ")
+    opcao = input("\nEscolha uma opção: ").strip()
 
     if opcao == "1":
         cadastrar_aluno()
